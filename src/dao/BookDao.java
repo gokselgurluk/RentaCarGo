@@ -46,7 +46,7 @@ public class BookDao {
 
     }
     public ArrayList<Book> selectByQuery(String query) {
-        System.out.println(query);
+       // System.out.println(query);
         ArrayList<Book> books = new ArrayList<>();
 
         try {

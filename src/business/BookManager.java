@@ -38,11 +38,8 @@ public class BookManager {
             rowObject[i++] = obj.getFnsh_date();
             rowObject[i++] = obj.getPrc();
             rentalObjList.add(rowObject);
-
-
         }
         return  rentalObjList;
-
     }
 
     public ArrayList<Book>  searcForTable(int carId){

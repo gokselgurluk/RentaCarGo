@@ -75,37 +75,6 @@ public class CarManager {
         return this.carDao.delete(id);
     }
 
-    public ArrayList<Car> rentalList() {
-        ArrayList<Book> bookList = this.bookDao.selectByQuery("SELECT * FROM public.book");
-
-        ArrayList<Integer> busyCarId = new ArrayList<>();
-        for (Book book : bookList) {
-            busyCarId.add(book.getCar_id());
-        }
-
-        // Eğer meşgul araba kimliği yoksa, tüm arabaları getirin
-        if (busyCarId.isEmpty()) {
-            return null;
-        }
-
-        // Meşgul araba kimliklerini `NOT IN` koşulu için uygun biçimde birleştirin
-        StringBuilder notInCondition = new StringBuilder();
-        for (int i = 0; i < busyCarId.size(); i++) {
-            if (i > 0) {
-                notInCondition.append(", ");
-            }
-            notInCondition.append(busyCarId.get(i));
-        }
-
-        // Araba sorgusu için tam SQL sorgusunu oluşturun
-        String sqlQuery = "SELECT c.*, m.* FROM public.car AS c " +
-                "LEFT JOIN public.model AS m ON c.car_model_id = m.model_id " +
-                "WHERE c.car_id IN (" + notInCondition.toString() + ")";
-
-        // Araba sorgusunu çalıştırın
-        ArrayList<Car> searchedCarList = this.carDao.selectByQuery(sqlQuery);
-        return searchedCarList;
-    }
     public ArrayList<Car> searchForBooking(String strt_date,String fnsh_date,Model.Type type,Model.Gear gear,Model.Fuel fuel){
         String query ="SELECT * FROM public.car as c LEFT JOIN public.model as m ";
 

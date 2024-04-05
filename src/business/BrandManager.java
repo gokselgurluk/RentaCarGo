@@ -22,7 +22,6 @@ public class BrandManager {
 
     }
     public ArrayList<Object[]>getForTable(int size){
-
         ArrayList<Object[]> brandRowList = new ArrayList<>();
         for(Brand brand : this.findAll()){
             Object[] rowObject = new Object[size];

@@ -43,13 +43,6 @@ public class ModelDao {
     }
 
     public ArrayList<Model> findAll() {
-         /* ArrayList<Model> modelList = new ArrayList<>();
-        ResultSet rs =this.con.createStatement().executeQuery(sql);
-           Statement st =this.con.createStatement();
-           ResultSet rs =st.executeQuery(sql);
-           while(rs.next()){
-               modelList.add(this.match(rs));
-                */
         String sql = "SELECT * FROM public.model ORDER BY model_id ASC";
         return this.selectByQuery(sql);
 

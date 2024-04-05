@@ -67,7 +67,6 @@ public ArrayList<Model>  searcForTable(int brandId,Model.Fuel fuel,Model.Gear ge
     ArrayList<String> whereList = new ArrayList<>();
     if (brandId != 0){
         whereList.add("model_brand_id = " + brandId);
-
     }
     if(fuel != null ){
         whereList.add("model_fuel ='"+fuel.toString()+"'");
